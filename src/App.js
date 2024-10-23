@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from 'react-router-dom'
+import MainPage from './pages/MainPage';
+import CategoriesPage from './pages/CategoriesPage';
+import AllProductsPage from './pages/AllProductsPage';
+import CartPage from './pages/CartPage';
+import NotFoundPage from './pages/NotFoundPage';
+import Header from './componets/Header';
+import ProductsByCategoryPage from './pages/ProductsByCategoryPage';
+import SingleProductPage from './pages/SingleProductPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header/>
+      <Routes>
+        <Route path='/' element={<MainPage />} />
+        <Route path='/categories' element={<CategoriesPage />} />
+        <Route path='/all_products' element={<AllProductsPage />} />
+        <Route path='/cart' element={<CartPage />} />
+        <Route path='/categories/:category_name' element={<ProductsByCategoryPage />} />
+        <Route path='/products/:product_id' element={<SingleProductPage />} />
+        <Route path='*' element={<NotFoundPage />} />
+      </Routes>
     </div>
   );
 }
