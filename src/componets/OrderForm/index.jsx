@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useSelector } from 'react-redux';
+import { Context } from '../../context';
 
 export default function OrderForm() {
+
+    const {openModalWindow} = useContext(Context);
 
     const cartState = useSelector(store => store.cart);
     const totalSum = +cartState.reduce((acc, el) => acc + (el.price * el.count), 0).toFixed(2);
@@ -22,7 +25,9 @@ export default function OrderForm() {
         }
 
         console.log(newOrder);
-        
+
+
+        openModalWindow()
 
         e.target.reset()
     }
