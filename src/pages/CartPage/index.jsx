@@ -2,6 +2,7 @@ import React from 'react'
 import CartContainer from '../../componets/CartContainer'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearCartAction } from '../../store/reducers/cartReducer';
+import OrderForm from '../../componets/OrderForm';
 
 export default function CartPage() {
 
@@ -24,6 +25,7 @@ export default function CartPage() {
             <div onClick={() => dispatch(clearCartAction())}>Clear cart</div>
             <p>Items count: {totalCount}</p>
             <p>Total price: {totalSum}$</p>
+            <OrderForm />
           </div>
       }
  
