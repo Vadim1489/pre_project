@@ -19,6 +19,7 @@ function App() {
   const dispatch = useDispatch();
 
   const [ modalActive, setModalActive ] = useState(false);
+  const [ menuActive, setMenulActive ] = useState(false);
 
   const closeModalWindow = () =>{
     setModalActive(false)
@@ -26,10 +27,13 @@ function App() {
   };
   const openModalWindow = () => setModalActive(true);
 
+  const openMenu = () => setMenulActive(true);
+  const closeMenu = () => setMenulActive(false);
+
 
   return (
     <div>
-      <Context.Provider value={{closeModalWindow, openModalWindow, modalActive }}>
+      <Context.Provider value={{closeModalWindow, openModalWindow, modalActive, openMenu, closeMenu, menuActive }}>
         <ModalWindow />
         <Header/>
         <Routes>

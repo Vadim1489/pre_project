@@ -7,7 +7,9 @@ export default function ProductsContainer({products}) {
   return (
     <div className={s.container}>
         {
-            products.map(el => <ProductCard key={el.id} {...el} />)
+            products
+            .filter(el => el.visible)
+            .map(el => <ProductCard key={el.id} {...el} />)
         }
     </div>
   )
